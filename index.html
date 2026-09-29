@@ -263,18 +263,20 @@ const SHEET_CSV_URL = "";
 // id, n: nombre, c: categoría, f: foto (opcional), b: etiqueta (opcional, ej. "¡Oferta!"), d: palabras para la búsqueda
 // v: presentaciones → [presentación, precio, agotado (true/false), precio anterior (opcional)]
 let PRODUCTOS = [
-  {id:"langostino", n:"Colas de Langostinos peladas", c:"Pescados y Mariscos", f:"img/langostino.jpg", d:"Langostino pelado", v:[["500gr / 16/20",71],["1 kg / 16/20",138]]},
-  {id:"salmon", n:"Filete de Salmón", c:"Pescados y Mariscos", f:"img/salmon.jpg", d:"Salmón porciones", v:[["500 g",39.9],["1 kg",77.9]]},
-  {id:"corvina", n:"Filete de Corvina sin Piel", c:"Pescados y Mariscos", f:"img/corvina.jpg", d:"Corvina pescado blanco", v:[["1 kg",74.5,false,89]]},
-  {id:"trucha", n:"Filete de Trucha Asalmonada", c:"Pescados y Mariscos", f:"img/trucha.jpg", d:"Trucha", v:[["500 g",45.9],["1 kg",89.9]]},
-  {id:"mero", n:"Filete de Mero", c:"Pescados y Mariscos", f:"img/mero.jpg", d:"Mero pescado blanco", v:[["500 g",49.9],["1 kg",97.9]]},
-  {id:"mix", n:"Mix de Mariscos", c:"Pescados y Mariscos", d:"Pota langostino calamar choro", v:[["500 g",61],["1 kg",120]]},
-  {id:"carpaccio", n:"Carpaccio de Salmón x 200gr", c:"Casi Listos y Piqueos", d:"Salmón láminas", v:[["200 g",39.5]]},
-  {id:"panko", n:"Langostinos al panko con salsa de maracuyá", c:"Casi Listos y Piqueos", d:"Langostino apanado", v:[["Paquete",74.5]]},
-  {id:"brochetas", n:"Brochetas de mariscos x 5 unidades", c:"Casi Listos y Piqueos", d:"Brochetas parrilla", v:[["5 und",65]]},
-  {id:"vacio", n:"Pack Vacío Angus/Flap Meat USA", c:"Carnes y Parrillas", d:"Carne res parrilla", v:[["Pack",256]]},
-  {id:"cuadril", n:"Pack Colita de Cuadril Angus USA", c:"Carnes y Parrillas", d:"Carne res horno", v:[["Pack",219]]},
-  {id:"coronita", n:"Six Pack Cerveza Coronita x 210ml", c:"Vinos, Cervezas y Agua", d:"Cerveza Corona", v:[["6 und",25.5]]},
+  {id:"langostinopyd", n:"Colas de Langostinos peladas", c:"Pescados y Mariscos", f:"img/langostinopyd.png", d:"Langostino pelado", v:[["500gr / 16/20",71],["1 kg / 16/20",138]]},
+  {id:"langostinocc", n:"Colas de Langostinos sin pelar", c:"Pescados y Mariscos", f:"img/langostinocc.png", d:"Langostino con cascara", v:[["500gr / 16/20",71],["1 kg / 16/20",138]]},
+  {id:"salmon", n:"Filete de Salmón", c:"Pescados y Mariscos", f:"img/salmon.png", d:"Salmón porciones", v:[["500 g",39.9],["1 kg",77.9]]},
+  {id:"corvina", n:"Filete de Corvina sin Piel", c:"Pescados y Mariscos", f:"img/corvina.png", d:"Corvina pescado blanco", v:[["1 kg",74.5,false,89]]},
+  {id:"trucha", n:"Filete de Trucha Asalmonada", c:"Pescados y Mariscos", f:"img/trucha.png", d:"Trucha", v:[["500 g",45.9],["1 kg",89.9]]},
+  {id:"mero", n:"Filete de Mero", c:"Pescados y Mariscos", f:"img/mero.png", d:"Mero pescado blanco", v:[["500 g",49.9],["1 kg",97.9]]},
+  {id:"mixmariscos", n:"Mix de Mariscos", c:"Pescados y Mariscos", f:"img/mixmariscos.png", d:"Langostino pelado, pulpo, calamar en anillas y conchas de abanico sin coral", v:[["500 g",61],["1 kg",120]]},
+  {id:"carpacciosalmon", n:"Carpaccio de Salmón x 200gr", f:"img/carpacciosalmon.png", c:"Casi Listos y Piqueos", d:"Salmón láminas", v:[["200 g",39.5]]},
+  {id:"langostinosalpanko", n:"Langostinos al panko con salsa de maracuyá", f:"img/langostinospanko.png", c:"Casi Listos y Piqueos", d:"Langostino apanado", v:[["Paquete",74.5]]},
+  {id:"conchasparmesana", n:"conchitas a la Parmesana",f:"img/conchasparmesana.png", c:"Casi Listos y Piqueos", d:"Conchas limpias sin coral, colmadas de una mezcla de queso argentino", v:[["5 und",65]]},
+  {id:"saltado", n:"Carne para saltado", c:"Carnes y Parrillas",f:"img/csaltado.png", d:"Carne para saltado", v:[["1 kg",51]]},
+  {id:"bifeanchousa", n:"Bife Ancho Angus USA",f:"img/bifeancho.png", c:"Carnes y Parrillas", d:"Congelada y sellada al vacío.", v:[["1 kg",233]]},
+  {id:"bifeangostousa", n:"Bife Angosto Angus USA",f:"img/bifeangosto.png", c:"Carnes y Parrillas", d:"Congelada y sellada al vacío.", v:[["1 kg",201]]},
+  {id:"coronita", n:"Six Pack Cerveza Coronita x 210ml",f:"img/coronas.png", c:"Vinos, Cervezas y Agua", d:"Cerveza Corona", v:[["6 und",25.5]]},
 ];
 /* ============================================ */
 
