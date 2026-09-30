@@ -233,15 +233,14 @@ footer{color:var(--gris);font-size:12.5px;padding-block:28px 100px;text-align:ce
 <script>
 /* ========= CONFIGURACIÓN: edita aquí ========= */
 // Asesoras: cada una comparte su propio enlace y los pedidos le llegan a su WhatsApp.
-//   Jeny:   .../?asesora=jeny     Yurico: .../?asesora=yurico     Oscar: .../?asesora=oscar
-//   (también funciona con #jeny, #yurico, #oscar al final del enlace)
+//   Jeny:   .../?asesora=jeny     Yurico: .../?asesora=yurico
+//   (también funciona con #jeny, #yurico al final del enlace)
 // Número con código de país, sin +, sin espacios.
 const ASESORAS = {
-  oscar:  { nombre: "Oscar",  tel: "51954781474" },
   yurico: { nombre: "Yurico", tel: "51946541722" },
   jeny:   { nombre: "Jeny",   tel: "51947181213" },
 };
-const ASESORA_GENERAL = "oscar"; // recibe los pedidos de clientes que llegan sin enlace de asesora
+const ASESORA_GENERAL = "Jeny"; // recibe los pedidos de clientes que llegan sin enlace de asesora
 const PEDIDO_MINIMO = 80;        // S/
 
 // Se acepta CUALQUIER distrito (también provincias). La lista solo sugiere al escribir.
@@ -307,22 +306,11 @@ let PRODUCTOS = [
   {id:"tiraditoatun", n:"Tiradito de Atún + Salsa Oriental", c:"Casi Listos y Piqueos", f:"img/tiraditoatunoriental.png", d:"Tiradito atún", v:[["",null]]},
   {id:"pulpoprecocido", n:"Pulpo Pre-cocido", c:"Casi Listos y Piqueos", f:"img/pulpococido.png", d:"Pulpo cocido listo", v:[["",null]]},
   // --- Carnes y Parrillas ---
-  {id:"saltado", n:"Carne para saltado", c:"Carnes y Parrillas",f:"img/csaltado.png", d:"Carne para saltado", v:[["1 kg",51]]},
   {id:"bifeanchousa", n:"Bife Ancho Angus USA", c:"Carnes y Parrillas", f:"img/bifeancho.png", d:"Congelada y sellada al vacío.", v:[["1 kg",233]]},
   {id:"bifeangostousa", n:"Bife Angosto Angus USA",f:"img/bifeangosto.png", c:"Carnes y Parrillas",d:"Congelada y sellada al vacío.", v:[["1 kg",201]]},
   {id:"picanha", n:"Picanha Angus USA", c:"Carnes y Parrillas", f:"img/picanha.png", d:"Carne res parrilla", v:[["",null]]},
   {id:"entrana", n:"Entraña Angus Americana", c:"Carnes y Parrillas", f:"img/entrana.png", d:"Carne res parrilla", v:[["",null]]},
-  {id:"medalloneslomo", n:"Medallones de Lomo Fino de Res", c:"Carnes y Parrillas", f:"img/medalloneslomo.png", d:"Carne res lomo", v:[["",null]]},
-  {id:"lomofino", n:"Lomo Fino de Res", c:"Carnes y Parrillas", f:"img/lomofino.png", d:"Carne res lomo", v:[["",null]]},
-  {id:"carnemolida", n:"Carne Molida", c:"Carnes y Parrillas", f:"img/carnemolida.png", d:"Carne res molida", v:[["",null]]},
-  {id:"solomillocerdo", n:"Solomillo de Cerdo", c:"Carnes y Parrillas", f:"img/solomillodecerdo.png", d:"Cerdo", v:[["",null]]},
-  {id:"pancetacerdo", n:"Panceta de Cerdo", c:"Carnes y Parrillas", f:"img/pancetacerdo.png", d:"Cerdo tocino", v:[["",null]]},
   {id:"hamburguesaangus", n:"Hamburguesa Angus", c:"Carnes y Parrillas", f:"img/hamburangus.png", d:"Hamburguesa res", v:[["",null]]},
-  {id:"bisteccabezalomo", n:"Bistec de Cabeza de Lomo", c:"Carnes y Parrillas", f:"img/bisteclomo.png", d:"Carne res", v:[["",null]]},
-  {id:"costillarcerdo", n:"Costillar de Cerdo", c:"Carnes y Parrillas", f:"img/costillar.png", d:"Cerdo costillas", v:[["",null]]},
-  {id:"pechugapollo", n:"Pechuga de Pollo", c:"Carnes y Parrillas", f:"img/pechuga.png", d:"Pollo", v:[["",null]]},
-  {id:"alitaspollo", n:"Alitas de Pollo", c:"Carnes y Parrillas", f:"img/alitas.png", d:"Pollo alas", v:[["",null]]},
-  {id:"magretpato", n:"Magret de Pato", c:"Carnes y Parrillas", f:"img/magret.png", d:"Pato", v:[["",null]]},
   {id:"chorizoppf", n:"Chorizo Parrillero PPF", c:"Carnes y Parrillas", f:"img/chorizo.png", d:"Chorizo embutido parrilla", v:[["",null]]},
   // --- Embutidos y Quesos ---
   {id:"quesoedam", n:"Queso Edam Laminado", c:"Embutidos y Quesos", f:"img/edaml.png", d:"Queso", v:[["",null]]},
