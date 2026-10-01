@@ -487,9 +487,9 @@ if (asesoraFija) {
 } else $("#asesora").value = "";
 const asesora = () => ASESORAS[$("#asesora").value || ASESORA_GENERAL];
 $("#distritos").innerHTML = DISTRITOS.map(d => `<option value="${d}">`).join("");
-function delivery(){ // número, 0 (gratis) o null (por confirmar)
-  if ($("#entrega").value !== "Delivery") return 0;
-  const z = norm($("#zona").value); if (!z) return null;
+function delivery(){ // número o null (por confirmar)
+  const z = norm($("#zona").value);
+  if (!z) return null;
   const k = Object.keys(TARIFAS).find(d => norm(d) === z);
   return k ? TARIFAS[k] : null;
 }
@@ -519,7 +519,7 @@ function updateLink(it, sub, envio){
   let problema = "";
   if (!it.length) problema = "";
   else if (sub < PEDIDO_MINIMO) problema = `El pedido mínimo es ${fmt(PEDIDO_MINIMO)}. Te faltan ${fmt(PEDIDO_MINIMO-sub)}.`;
-  else if ($("#entrega").value === "Delivery" && !$("#zona").value.trim()) problema = "Escribe tu distrito para el delivery.";
+  else if (!$("#zona").value.trim()) problema = "Escribe tu distrito para el delivery.";
   err.hidden = !problema; err.textContent = problema;
   const ok = it.length && !problema;
   btn.setAttribute("aria-disabled", !ok);
@@ -528,14 +528,18 @@ function updateLink(it, sub, envio){
   const rec = $("#entrega").value !== "Delivery";
   const f = $("#fecha").value ? new Date($("#fecha").value+"T12:00").toLocaleDateString("es-PE",{weekday:"long",day:"numeric",month:"long"}) : "Por coordinar";
   const msg = [
-    `Hola ${$("#asesora").value ? asesora().nombre : "Perú Pacific Food"}, quiero hacer este pedido:`, "",
-    ...it.map(x => `• ${x.q} × ${x.p.n} (${x.pres}) — ${fmt(x.sub)}`), "",
-    `Subtotal: ${fmt(sub)}`, `Delivery: ${envioTxt(envio)}`, `*TOTAL: ${fmt(sub+(envio||0))}${envio===null?" + delivery":""}*`, "",
-    rec ? "Entrega: Recojo en almacén" : `Distrito: ${$("#zona").value.trim()}`,
-    ($("#direccion").value.trim() || null) && `Dirección: ${$("#direccion").value.trim()}`,
-    `Fecha: ${f}`, `Pago: ${$("#pago").value}`,
-    ($("#nota").value.trim() || null) && `Comentarios: ${$("#nota").value.trim()}`,
-  ].filter(l => l !== null).join("\n");
+  `Hola ${$("#asesora").value ? asesora().nombre : "Perú Pacific Food"}, quiero hacer este pedido:`, "",
+  ...it.map(x => `• ${x.q} × ${x.p.n} (${x.pres}) — ${fmt(x.sub)}`), "",
+  `Subtotal: ${fmt(sub)}`,
+  `Delivery: ${envioTxt(envio)}`,
+  `*TOTAL: ${fmt(sub+(envio||0))}${envio===null?" + delivery":""}*`,
+  "",
+  `Distrito: ${$("#zona").value.trim()}`,
+  ($("#direccion").value.trim() || null) && `Dirección: ${$("#direccion").value.trim()}`,
+  `Fecha: ${f}`,
+  `Pago: ${$("#pago").value}`,
+  ($("#nota").value.trim() || null) && `Comentarios: ${$("#nota").value.trim()}`,
+].filter(l => l !== null).join("\n");
   btn.href = `https://wa.me/${asesora().tel}?text=${encodeURIComponent(msg)}`;
 }
 ["asesora","zona","entrega","fecha","direccion","pago","nota"].forEach(id => { $("#"+id).addEventListener("input", renderCart); $("#"+id).addEventListener("change", renderCart); });
