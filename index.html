@@ -211,10 +211,7 @@ footer{color:var(--gris);font-size:12.5px;padding-block:28px 100px;text-align:ce
         <legend>Datos de entrega</legend>
         <div class="field" id="asesoraField"><label for="asesora">¿Quién te atiende?</label><select id="asesora"></select></div>
         <div class="field"><label for="zona">Distrito</label><input id="zona" list="distritos" placeholder="Escribe o elige tu distrito" autocomplete="address-level2"><datalist id="distritos"></datalist></div>
-        <div class="row2">
-          <div class="field"><label for="entrega">Entrega</label><select id="entrega"><option>Delivery</option></select></div>
-          <div class="field"><label for="fecha">Fecha</label><input id="fecha" type="date"></div>
-        </div>
+        <div class="field"><label for="fecha">Fecha</label><input id="fecha" type="date"></div>
         <div class="field"><label for="direccion">Dirección / referencia</label><input id="direccion" placeholder="Av. Pardo 123, dpto 402"></div>
         <div class="field"><label for="pago">Pago</label><select id="pago"><option>Yape / Plin</option><option>Transferencia</option><option>Efectivo contra entrega</option><option>Tarjeta (POS)</option></select></div>
         <div class="field"><label for="nota">Comentarios</label><textarea id="nota" rows="2" placeholder="Ej. porcionar el salmón en 4"></textarea></div>
@@ -525,7 +522,6 @@ function updateLink(it, sub, envio){
   btn.setAttribute("aria-disabled", !ok);
   $("#hint").textContent = `Se abre el WhatsApp de ${asesora().nombre} con tu pedido escrito. Solo presiona enviar.`;
   if (!ok) { btn.href = "#"; return; }
-  const rec = $("#entrega").value !== "Delivery";
   const f = $("#fecha").value ? new Date($("#fecha").value+"T12:00").toLocaleDateString("es-PE",{weekday:"long",day:"numeric",month:"long"}) : "Por coordinar";
   const msg = [
   `Hola ${$("#asesora").value ? asesora().nombre : "Perú Pacific Food"}, quiero hacer este pedido:`, "",
@@ -542,7 +538,7 @@ function updateLink(it, sub, envio){
 ].filter(l => l !== null).join("\n");
   btn.href = `https://wa.me/${asesora().tel}?text=${encodeURIComponent(msg)}`;
 }
-["asesora","zona","entrega","fecha","direccion","pago","nota"].forEach(id => { $("#"+id).addEventListener("input", renderCart); $("#"+id).addEventListener("change", renderCart); });
+["asesora","zona","fecha","direccion","pago","nota"].forEach(id => { $("#"+id).addEventListener("input", renderCart); $("#"+id).addEventListener("change", renderCart); });
 
 const openCart = o => { $("#cart").classList.toggle("open", o); $("#scrim").hidden = !o; };
 $("#openCart").onclick = () => openCart(true);
